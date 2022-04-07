@@ -1,0 +1,27 @@
+{
+	"name": "webflow-start-kit",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"watch-sass": "sass --no-source-map --watch src/styles:build/styles --style compressed",
+		"uglify-js": "uglifyjs-folder src/scripts -eo build/scripts --extension .js",
+		"lint-scss": "npx stylelint --fix src/**/*.scss",
+		"lint-js": "npx eslint --fix src/**/*.js"
+	},
+	"author": "kirillsakun",
+	"license": "ISC",
+	"devDependencies": {
+		"eslint": "^8.12.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.26.0",
+		"sass": "^1.50.0",
+		"stylelint": "^14.6.1",
+		"stylelint-config-idiomatic-order": "^8.1.0",
+		"stylelint-config-sass-guidelines": "^9.0.1",
+		"stylelint-config-standard": "^25.0.0",
+		"stylelint-scss": "^4.2.0",
+		"uglify-js": "^3.15.3",
+		"uglifyjs-folder": "^3.1.2"
+	}
+}
