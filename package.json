@@ -4,7 +4,10 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"watch-sass": "sass --no-source-map --watch src/styles:build/styles --style compressed",
+		"dev": "npm-run-all watch-sass",
+		"build": "npm-run-all build-sass build-css build-js",
+		"lint": "npm-run-all lint-scss lint-js --continue-on-error",
+		"watch-sass": "sass --no-source-map --watch src/styles:build/styles",
 		"build-sass": "sass --no-source-map src/styles:build/styles --style compressed",
 		"build-css": "npx postcss **/*.css --use autoprefixer --replace",
 		"build-js": "uglifyjs-folder src/scripts -eo build/scripts --extension .js",
