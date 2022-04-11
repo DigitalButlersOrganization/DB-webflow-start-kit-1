@@ -6,20 +6,21 @@
 	"scripts": {
 		"setup": "npm ci",
 		"dev": "npm-run-all watch-sass",
-		"build": "rm -rf build && npm-run-all build-sass build-css autoprefixer build-js",
+		"build": "npm-run-all clear-build-dir build-sass build-css build-js",
 		"lint": "npm-run-all lint-scss lint-js --continue-on-error",
 		"watch-sass": "sass --no-source-map --watch src/styles:build/styles",
 		"build-sass": "sass --no-source-map src/styles:build/styles --style compressed",
-		"build-css": "npx postcss **/*.css --use autoprefixer --replace",
+		"build-css": "postcss --replace ./build/**/*.css",
 		"build-js": "uglifyjs-folder src/scripts -eo build/scripts --extension .js",
 		"lint-scss": "npx stylelint --fix src/**/*.scss",
 		"lint-js": "npx eslint --fix src/**/*.js",
-		"autoprefixer": "postcss --replace ./build/**/*.css"
+		"clear-build-dir": "npx cf build"
 	},
 	"author": "kirillsakun",
 	"license": "ISC",
 	"devDependencies": {
 		"autoprefixer": "^9.8.8",
+		"clear-folder": "^3.1.0",
 		"eslint": "^8.12.0",
 		"eslint-config-airbnb-base": "^15.0.0",
 		"eslint-plugin-import": "^2.26.0",
